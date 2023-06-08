@@ -1,0 +1,92 @@
+.w100 {
+  width: 100%;
+}
+
+.boder {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px #ccc;
+  outline: none;
+}
+
+ul,
+ol {
+  list-style-type: none;
+  padding: 0;
+}
+
+.message {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.error {
+  background-color: #ff3333;
+  color: #ffffff;
+}
+
+.warning {
+  background-color: #ff9933;
+  color: #ffffff;
+}
+
+.info {
+  background-color: #33ccff;
+  color: #ffffff;
+}
+
+.mr5 {
+  margin-right: 5px;
+}
+
+.ml5 {
+  margin-left: 5px;
+}
+
+.white-space {
+  white-space: break-spaces;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.padding-r-5 {
+  padding-right: 5px;
+}
+
+.padding-r-10 {
+  padding-right: 10px;
+}
+
+.padding-l-20 {
+  padding-left: 20px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.flex-betweet {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-shirt {
+  flex-shrink: 0;
+}
