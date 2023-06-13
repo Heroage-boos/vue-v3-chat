@@ -3,22 +3,13 @@
     <div class="nav-container">
       <div class="nav">
         <div class="nav-con">
-          <a
-            v-for="(item, index) in navItems"
-            :key="index"
-            :href="'#' + item['name']"
-            class="nav-item"
-            :class="{ active: activeIndex === index }"
-            @click="setActive(index)"
-          >
+          <a v-for="(item, index) in navItems" :key="index" :href="'#' + item['name']" class="nav-item"
+            :class="{ active: activeIndex === index }" @click="setActive(index)">
             {{ item.title }}
           </a>
         </div>
       </div>
       <div class="content">
-        <!-- <div v-for="(item, index) in contentItems" :key="index" v-show="activeIndex === index">
-                    {{ item }}
-                </div> -->
         <h1>My Tab Panel</h1>
         <div class="tab-panel">
           <ul class="tab-nav">
@@ -61,69 +52,59 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
 
-export default defineComponent({
-  name: 'WebNav',
-  data() {
-    return {
-      navItems: [
-        {
-          title: '分类导航',
-          name: 'class'
-        },
-        {
-          title: '生活休闲',
-          name: 'life'
-        },
-        {
-          title: '影视资源',
-          name: 'movie'
-        },
-        {
-          title: '读物学习',
-          name: 'study'
-        },
-        {
-          title: '搜索查询',
-          name: 'search'
-        },
-        {
-          title: '模板图库',
-          name: 'template'
-        },
-        {
-          title: '软件工具',
-          name: 'tools'
-        },
-        {
-          title: '媒体运营',
-          name: 'media'
-        },
-        {
-          title: '音乐MV',
-          name: 'music'
-        },
-        {
-          title: '导航网址',
-          name: 'navigation'
-        }
-      ],
-      contentItems: ['Content 1', 'Content 2', 'Content 3'],
-      activeIndex: 0,
-      activeTab: 1
-    }
+const navItems = [
+  {
+    title: '分类导航',
+    name: 'class'
   },
-  methods: {
-    setActive(index: number) {
-      this.activeIndex = index
-    },
-    setActiveTab(tab: number) {
-      this.activeTab = tab
-    }
+  {
+    title: '生活休闲',
+    name: 'life'
+  },
+  {
+    title: '影视资源',
+    name: 'movie'
+  },
+  {
+    title: '读物学习',
+    name: 'study'
+  },
+  {
+    title: '搜索查询',
+    name: 'search'
+  },
+  {
+    title: '模板图库',
+    name: 'template'
+  },
+  {
+    title: '软件工具',
+    name: 'tools'
+  },
+  {
+    title: '媒体运营',
+    name: 'media'
+  },
+  {
+    title: '音乐MV',
+    name: 'music'
+  },
+  {
+    title: '导航网址',
+    name: 'navigation'
   }
-})
+]
+let activeIndex = 0
+let activeTab = 1
+
+const setActive = (index: number) => {
+  activeIndex = index
+}
+const setActiveTab = (tab: number) => {
+  activeTab = tab
+}
 </script>
 
 <style lang="scss" scoped>

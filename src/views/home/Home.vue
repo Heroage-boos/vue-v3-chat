@@ -6,12 +6,7 @@
 
     <div class="web-nav">
       <div>快捷导航：</div>
-      <div
-        v-for="(n, index) in navData"
-        :key="index"
-        class="nav-con"
-        @click="handleHref(n['web_url'])"
-      >
+      <div v-for="(n, index) in navData.data" :key="index" class="nav-con" @click="handleHref(n['web_url'])">
         <svg class="icon" aria-hidden="true">
           <use :xlink:href="'#' + n['web_img']"></use>
         </svg>
@@ -25,55 +20,48 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
 import Search from '@/views/home/Search.vue'
 import NavContent from '@/views/home/NavContent.vue'
-// import Search from "@/components/Search.vue";
 import { getQuirsutNav, getWangYiYun } from '@/api/home'
+import { onBeforeMount, reactive } from 'vue';
 
-export default defineComponent({
-  name: 'HomeView',
-  components: {
-    Search,
-    NavContent
-  },
-  data: () => {
-    return {
-      navPage: 1,
-      navData: [],
-      wangYiYunInfo: ''
-    }
-  },
-  created() {
-    this.getQuirsutNav()
-    // this.getWangYiYun();
-  },
-  methods: {
-    getQuirsutNav() {
-      getQuirsutNav({
-        page: this.navPage
-      }).then((res: any) => {
-        console.log('getQuirsutNav', res)
-        this.navData = res.data.result
-      })
-    },
-    handleHref(a: string) {
-      console.log('a', a)
-      // window.location.href= a  //在当前页面打开窗口
-      window.open(a)
-    },
-    getWangYiYun() {
-      getWangYiYun().then((res: any) => {
-        console.log('getWangYiYun', res)
-        if (res.code === 200) {
-          this.wangYiYunInfo = res.data.duanzi
-        }
-      })
-    }
-  }
+let navPage: number = 1
+let navData = reactive({
+  data: []
 })
+let wangYiYunInfo: string = ''
+
+onBeforeMount(() => {
+  getQuirsutNavMethod()
+  // this.getWangYiYunMethod();
+})
+
+const getQuirsutNavMethod = (): void => {
+  getQuirsutNav({
+    page: navPage
+  }).then((res: any) => {
+    console.log('getQuirsutNav', res)
+    navData.data = res.data.result
+  })
+}
+
+const handleHref = (a: string): void => {
+  console.log('a', a)
+  // window.location.href= a  //在当前页面打开窗口
+  window.open(a)
+}
+
+const getWangYiYunMethod = (): void => {
+  getWangYiYun().then((res: any) => {
+    console.log('getWangYiYun', res)
+    if (res.code === 200) {
+      wangYiYunInfo = res.data.duanzi
+    }
+  })
+}
 </script>
+
 <style lang="scss" scoped>
 .home-container {
   // border: solid 1px red;

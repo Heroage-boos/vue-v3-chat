@@ -1,22 +1,25 @@
 import request from '@/utils/request'
+import type * as Home from "./types/home"
 
-export const getUsers = () =>
-  request({
+export function getUsers() {
+  return request({
     url: '/users',
     method: 'get'
   })
+}
 
-export const getNews = (data: any) =>
-  request({
+export function getNews(data: any) {
+  return request({
     url: '/tt-news-list',
     method: 'get',
     params: {
       ...data
     }
   })
+}
 
-export const tang300 = () =>
-  request({
+export function tang300() {
+  return request({
     url: '/tang300',
     method: 'get',
     params: {
@@ -24,46 +27,52 @@ export const tang300 = () =>
       page: 10
     }
   })
+}
 
-export const getCsdnHot = (data: any) =>
-  request({
+export function getCsdnHot(data: any) {
+  return request({
     url: '/resou/v1/csdn',
     method: 'get',
     params: {
       ...data
     }
   })
+}
 
 // 头条热榜
-export const getTouTiaoHot = () =>
-  request({
+export function getTouTiaoHot() {
+  return request({
     url: '/toutiao-hot',
     method: 'get'
   })
+}
 
 // 头条热榜
-export const get24Hot = (data: any) =>
-  request({
+export function get24Hot(data: any) {
+  return request({
     url: '/24k/hot',
     method: 'get',
     params: {
       ...data
     }
   })
+}
 
 // 快捷导航
-export const getQuirsutNav = (data: any) =>
-  request({
+export function getQuirsutNav(data: any) {
+  return request<Home.HomeWebNavInfo>({
     url: '/web-nav',
     method: 'get',
     params: {
       ...data
     }
   })
+}
 
 // 网易云段子
-export const getWangYiYun = () =>
-  request({
+export function getWangYiYun() {
+  return request({
     url: '/wangyiyun',
     method: 'get'
   })
+}
