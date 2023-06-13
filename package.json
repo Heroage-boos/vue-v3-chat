@@ -8,8 +8,10 @@
     "build:prod": "vue-tsc --noEmit && vite build",
     "preview:dev": "npm build:dev && vite preview",
     "preview:prod": "npm build:prod && vite preview",
-    "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
+    "lint:eslint": "eslint --cache --max-warnings 0 \"src/**/*.{vue,js,ts,tsx}\" --fix",
+    "lint:prettier": "prettier --write  \"src/**/*.{js,ts,json,tsx,css,less,scss,vue,html,md}\"",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "prepare": "husky install",
     "format": "prettier --write src/"
   },
   "dependencies": {
@@ -18,6 +20,7 @@
     "eslint-plugin-vue-scoped-css": "^2.4.0",
     "mockjs": "^1.1.0",
     "pinia": "^2.0.36",
+    "Prettier": "npm:prettier@^2.8.8",
     "sass": "^1.63.2",
     "swiper": "^9.3.2",
     "terser": "^5.18.0",

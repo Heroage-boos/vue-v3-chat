@@ -1,12 +1,12 @@
 <template>
   <div class="app-con">
     <div class="header-nav">
-      <nav class="nav" v-if="$router.currentRoute.value.name != 'login'">
+      <nav v-if="$router.currentRoute.value.name != 'login'" class="nav">
         <!-- <router-link to="/">Home</router-link> 
     <router-link to="/chat">About</router-link> -->
         <!-- <router-view to="/" /> -->
         <div class="logo">
-          <a href="#"><img src="./assets/主页.svg" alt="Logo"></a>
+          <a href="#"><img src="./assets/主页.svg" alt="Logo" /></a>
         </div>
         <div class="menu">
           <ul>
@@ -15,7 +15,7 @@
             <li><router-link to="/hotTop">热榜</router-link></li>
             <li><router-link to="/util">实用工具</router-link></li>
             <li><router-link to="/community">社区</router-link></li>
-            <li><span v-on:click="handleChat()">chatGTP</span></li>
+            <li><span @click="handleChat()">chatGTP</span></li>
             <li><router-link to="/webNav">网址导航</router-link></li>
           </ul>
         </div>
@@ -28,37 +28,32 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue"
+import { defineComponent } from 'vue'
 import { mapGetters } from 'vuex'
 
 export default defineComponent({
-
   data: () => {
-    return {
-
-    }
+    return {}
   },
   // created() {
 
   // },
-
+  computed: {
+    ...mapGetters('auth', ['isLoggedIn'])
+  },
   methods: {
     handleChat() {
-      //判断是否登录 true加载聊天页面 false登录页面
-      console.log('this.isLoggedIn', this.isLoggedIn);
-      // return 
+      // 判断是否登录 true加载聊天页面 false登录页面
+      console.log('this.isLoggedIn', this.isLoggedIn)
+      // return
       // if (this.isLoggedIn) {
-      this.$router.push("/chat")
+      this.$router.push('/chat')
       // } else {
       //   this.$router.push("/login")
       // }
     }
-  },
-  computed: {
-    ...mapGetters('auth', ['isLoggedIn'])
   }
 })
-
 </script>
 
 <style lang="scss" scoped>
@@ -87,7 +82,6 @@ export default defineComponent({
   }
 }
 
-
 .con {
   flex: 1;
   margin-top: 64.39px;
@@ -108,7 +102,6 @@ export default defineComponent({
     padding: 0;
     list-style: none;
   }
-
 }
 
 .menu li {
@@ -118,7 +111,6 @@ export default defineComponent({
 }
 
 .menu {
-
   a {
     text-decoration: none;
     color: #333;

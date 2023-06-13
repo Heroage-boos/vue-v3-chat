@@ -3,16 +3,15 @@
         <div class="container">
             <div class="left">
                 <div class="login">Login</div>
-                <div class="eula">描述
-                </div>
+                <div class="eula">描述</div>
             </div>
             <div class="right">
                 <svg viewBox="0 0 320 300">
                     <defs>
-                        <linearGradient inkscape:collect="always" id="linearGradient" x1="13" y1="193.49992" x2="307"
+                        <linearGradient id="linearGradient" inkscape:collect="always" x1="13" y1="193.49992" x2="307"
                             y2="193.49992" gradientUnits="userSpaceOnUse">
-                            <stop style="stop-color: #ff00ff" offset="0" id="stop876" />
-                            <stop style="stop-color: #ff0000" offset="1" id="stop878" />
+                            <stop id="stop876" style="stop-color: #ff00ff" offset="0" />
+                            <stop id="stop878" style="stop-color: #ff0000" offset="1" />
                         </linearGradient>
                     </defs>
                     <path
@@ -20,9 +19,9 @@
                 </svg>
                 <div class="form">
                     <label for="email">username</label>
-                    <input type="email" id="email" v-model="username" />
+                    <input id="email" v-model="username" type="email" />
                     <label for="password">Password</label>
-                    <input type="password" id="password" v-model="password" />
+                    <input id="password" v-model="password" type="password" />
                     <div class="login-submit" @click="submit">Submit</div>
                 </div>
             </div>
@@ -31,39 +30,39 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue"
-import { mapGetters, mapActions } from "vuex"
+import { defineComponent } from 'vue'
+import { mapGetters, mapActions } from 'vuex'
 
 export default defineComponent({
-    name: "navLogin",
+    name: 'NavLogin',
     data: () => {
         return {
-            username: "",
-            password: "",
+            username: '',
+            password: ''
         }
+    },
+    computed: {
+        ...mapGetters('auth', ['isLoggedIn'])
     },
     methods: {
-        ...mapActions('auth', ["login", "logout"]),
+        ...mapActions('auth', ['login', 'logout']),
 
         submit() {
-            console.log("submit-----22", this.username, this.isLoggedIn)
-            //同步登陆信息  保存token 状态存储
+            console.log('submit-----22', this.username, this.isLoggedIn)
+            // 同步登陆信息  保存token 状态存储
 
-            //保存token
+            // 保存token
 
-            //更改登录状态
+            // 更改登录状态
             this.login(true)
-            this.$router.push("/chat")
+            this.$router.push('/chat')
         }
     },
-    computed:
-    {
-        ...mapGetters('auth', ['isLoggedIn'])
-    }
+
 })
 </script>
 <style lang="scss" scoped>
-@import url("https://rsms.me/inter/inter-ui.css");
+@import url('https://rsms.me/inter/inter-ui.css');
 
 ::selection {
     background: #2d2f36;
@@ -76,8 +75,6 @@ export default defineComponent({
 ::-moz-selection {
     background: #2d2f36;
 }
-
-
 
 .page {
     background: #e2e2e5;
@@ -226,4 +223,3 @@ input::-moz-focus-inner {
     cursor: pointer;
 }
 </style>
-

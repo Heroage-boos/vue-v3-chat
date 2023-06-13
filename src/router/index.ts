@@ -44,8 +44,6 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Community',
     component: () => import('../views/community/index.vue')
   }
-
-  
 ]
 
 const router = createRouter({
