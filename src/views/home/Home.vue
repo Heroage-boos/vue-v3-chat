@@ -6,11 +6,11 @@
 
         <div class="web-nav">
             <div> 快捷导航：</div>
-            <div v-for="n, index in navData" :key="index" class="nav-con " v-on:click="handleHref(n.web_url)">
+            <div v-for="n, index in navData" :key="index" class="nav-con " v-on:click="handleHref(n['web_url'])">
                 <svg class="icon" aria-hidden="true">
-                    <use :xlink:href="'#' + n.web_img"></use>
+                    <use :xlink:href="'#' + n['web_img']"></use>
                 </svg>
-                {{ n.web_name }}
+                {{ n['web_name'] }}
             </div>
 
         </div>

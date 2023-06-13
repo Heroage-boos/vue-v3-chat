@@ -2,7 +2,7 @@
     <div>社区</div>
 </template>
 
-<script>
+<script setup lang="ts">
 
 </script>
 

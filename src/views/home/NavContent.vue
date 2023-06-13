@@ -1,12 +1,12 @@
 <template>
-    <div class="container">
+    <div class="con">
         <!-- //100007微博热搜榜--0 100000百度热点--1 100012微信24h热文--2 100015知乎热榜--3 100020抖音热点榜--4 -->
 
         <!-- <div class="column">
             <h3>头条热榜</h3>
             <ul>
                 <li v-for="x, index in touTiaoHotData" :key="index">
-                    <a :href="x.Url" target="_blank">{{ x.Title }}</a>
+                    <a :href="x.Url" target="_blank">{{ x['title'] }}</a>
                 </li>
             </ul>
         </div> -->
@@ -14,9 +14,8 @@
             <h3>微博热榜</h3>
             <ul>
                 <li class="flex-betweet" v-for="x, index in wbHotData" :key="index">
-                    <span class="title-w"> <a :href="x.link" target="_blank">{{ x.title }}</a></span>
-                    <span>{{ x.hot }}</span>
-
+                    <span class="title-w"> <a :href="x['link']" target="_blank">{{ x['title'] }}</a></span>
+                    <span>{{ x['hot'] }}</span>
                 </li>
             </ul>
         </div>
@@ -24,8 +23,8 @@
             <h3>百度热榜</h3>
             <ul>
                 <li class="flex-betweet" v-for="x, index in bdHotData" :key="index">
-                    <span class="title-w"> <a :href="x.link" target="_blank">{{ x.title }}</a></span>
-                    <span>{{ x.hot }}</span>
+                    <span class="title-w"> <a :href="x['link']" target="_blank">{{ x['title'] }}</a></span>
+                    <span>{{ x['hot'] }}</span>
                 </li>
             </ul>
         </div>
@@ -33,8 +32,8 @@
             <h3>微信24h热榜</h3>
             <ul>
                 <li class="flex-betweet" v-for="x, index in wxHotData" :key="index">
-                    <span> <a :href="x.link" target="_blank">{{ x.title }}</a></span>
-                    <span>{{ x.hot }}</span>
+                    <span> <a :href="x['link']" target="_blank">{{ x['title'] }}</a></span>
+                    <span>{{ x['hot'] }}</span>
                 </li>
             </ul>
         </div>
@@ -42,8 +41,8 @@
             <h3>知乎热榜</h3>
             <ul>
                 <li class="flex-betweet" v-for="x, index in zhHotData" :key="index">
-                    <span class="title-w"> <a :href="x.link" target="_blank">{{ x.title }}</a></span>
-                    <span>{{ x.hot }}</span>
+                    <span class="title-w"> <a :href="x['link']" target="_blank">{{ x['title'] }}</a></span>
+                    <span>{{ x['hot'] }}</span>
                 </li>
             </ul>
         </div>
@@ -51,8 +50,8 @@
             <h3>抖音热榜</h3>
             <ul>
                 <li class="flex-betweet" v-for="x, index in dyHotData" :key="index">
-                    <span class="title-w"> <a :href="x.link" target="_blank">{{ x.title }}</a></span>
-                    <span>{{ x.hot }}</span>
+                    <span class="title-w"> <a :href="x['link']" target="_blank">{{ x['title'] }}</a></span>
+                    <span>{{ x['hot'] }}</span>
                 </li>
             </ul>
         </div>
@@ -60,10 +59,9 @@
     </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" >
 import { defineComponent } from 'vue';
 import { getUsers, getNews, tang300, getCsdnHot, getTouTiaoHot, get24Hot } from "@/api/home";
-
 
 export default defineComponent({
     name: 'NavContent',
@@ -174,7 +172,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.container {
+.con {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;

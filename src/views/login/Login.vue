@@ -29,12 +29,12 @@
         </div>
     </div>
 </template>
-<script>
 
-import axios from "axios"
+<script lang="ts">
+import { defineComponent } from "vue"
 import { mapGetters, mapActions } from "vuex"
 
-export default {
+export default defineComponent({
     name: "navLogin",
     data: () => {
         return {
@@ -60,7 +60,7 @@ export default {
     {
         ...mapGetters('auth', ['isLoggedIn'])
     }
-}
+})
 </script>
 <style lang="scss" scoped>
 @import url("https://rsms.me/inter/inter-ui.css");
