@@ -1,5 +1,3 @@
-
-//阿里矢量图icon  https://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.d8cf4382a&helptype=code
 .icon {
   width: 1em;
   height: 1em;
@@ -11,7 +9,7 @@
 .w100 {
   width: 100%;
 }
-// 漂亮的边框样式
+
 .boder {
   border: 2px solid #ccc;
   border-radius: 10px;
@@ -19,14 +17,12 @@
   outline: none;
 }
 
-//去除ul,ol默认样式
 ul,
 ol {
   list-style-type: none;
   padding: 0;
 }
 
-//message style start
 .message {
   position: fixed;
   bottom: 20px;
@@ -51,19 +47,19 @@ ol {
   background-color: #33ccff;
   color: #ffffff;
 }
-//message style end
 
 .mr5 {
   margin-right: 5px;
 }
-.mr10{
+
+.mr10 {
   margin-right: 10px;
 }
+
 .ml5 {
   margin-left: 5px;
 }
 
-//带格式渲染
 .white-space {
   white-space: break-spaces;
 }
@@ -71,32 +67,38 @@ ol {
 .text-right {
   text-align: right;
 }
+
 .padding-r-5 {
   padding-right: 5px;
 }
+
 .padding-r-10 {
   padding-right: 10px;
 }
+
 .padding-l-20 {
   padding-left: 20px;
 }
 
-//flex style
 .flex {
   display: flex;
 }
+
 .flex-end {
   display: flex;
   justify-content: flex-end;
 }
+
 .flex-betweet {
   display: flex;
   justify-content: space-between;
 }
+
 .flex-column {
   display: flex;
   flex-direction: column;
 }
+
 .flex-shirt {
   flex-shrink: 0;
 }

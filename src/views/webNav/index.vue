@@ -13,12 +13,12 @@
         <h1>My Tab Panel</h1>
         <div class="tab-panel">
           <ul class="tab-nav">
-            <li :class="{ active: activeTab === 1 }" @click="setActiveTab(1)">Tab 1</li>
-            <li :class="{ active: activeTab === 2 }" @click="setActiveTab(2)">Tab 2</li>
-            <li :class="{ active: activeTab === 3 }" @click="setActiveTab(3)">Tab 3</li>
+            <li :class="{ active: activeTab.tab === 1 }" @click="setActiveTab(1)">Tab 1</li>
+            <li :class="{ active: activeTab.tab === 2 }" @click="setActiveTab(2)">Tab 2</li>
+            <li :class="{ active: activeTab.tab === 3 }" @click="setActiveTab(3)">Tab 3</li>
           </ul>
           <div class="tab-content">
-            <div v-show="activeTab === 1">
+            <div v-show="activeTab.tab === 1">
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vulputate justo ac
                 bibendum dapibus. Aliquam lacinia sapien sed mauris mattis, a efficitur ipsum
@@ -27,7 +27,7 @@
                 euismod nunc id nibh tristique, a bibendum justo dictum.
               </p>
             </div>
-            <div v-show="activeTab === 2">
+            <div v-show="activeTab.tab === 2">
               <p>
                 Phasellus blandit mi et ipsum malesuada, in pretium lorem bibendum. Ut fringilla
                 urna ligula, nec luctus ipsum bibendum ac. Donec euismod, quam id interdum rutrum,
@@ -36,7 +36,7 @@
                 consequat dui lorem vel urna. Fusce eget dolor libero.
               </p>
             </div>
-            <div v-show="activeTab === 3">
+            <div v-show="activeTab.tab === 3">
               <p>
                 Sed sit amet nibh in velit rhoncus hendrerit. Sed porta ligula ut ex blandit, vel
                 eleifend nibh malesuada. Integer in enim eget odio efficitur lobortis. Quisque non
@@ -53,6 +53,7 @@
 </template>
 
 <script lang="ts" setup>
+import { reactive } from "vue"
 
 const navItems = [
   {
@@ -97,13 +98,15 @@ const navItems = [
   }
 ]
 let activeIndex = 0
-let activeTab = 1
+let activeTab = reactive({
+  tab: 1
+})
 
 const setActive = (index: number) => {
   activeIndex = index
 }
 const setActiveTab = (tab: number) => {
-  activeTab = tab
+  activeTab.tab = tab
 }
 </script>
 

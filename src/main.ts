@@ -7,10 +7,13 @@ import store from './store'
 import { loadSvg } from '@/icons'
 // import { loadPlugins } from '@/plugins'
 // import { loadDirectives } from '@/directives'
+import '@/mock'
 //css
 import '@/styles/index.scss'
-import '@/mock'
-import 'uno.css'
+import '@/styles/normalize.scss'
+import '@/styles/commont.scss'
+import '@/styles/util.scss'
+import '@/styles/theme.scss'
 
 const app = createApp(App)
 
