@@ -13,7 +13,6 @@
             <li><router-link to="/">Home</router-link></li>
             <li><router-link to="/cloudShop">云小铺</router-link></li>
             <li><router-link to="/hotTop">热榜</router-link></li>
-            <li><router-link to="/util">实用工具</router-link></li>
             <li><router-link to="/community">社区</router-link></li>
             <li><span @click="handleChat()">chatGTP</span></li>
             <li><router-link to="/webNav">网址导航</router-link></li>
@@ -117,6 +116,7 @@ export default defineComponent({
   z-index: 99999;
   background-color: var(--background-color);
   color: var(--text-color);
+
   .nav {
     display: flex;
     justify-content: space-between;

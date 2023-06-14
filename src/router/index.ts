@@ -25,11 +25,6 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/cloudShop/index.vue')
   },
   {
-    path: '/util',
-    name: 'Util',
-    component: () => import('../views/util/index.vue')
-  },
-  {
     path: '/webNav',
     name: 'WebNav',
     component: () => import('../views/webNav/index.vue')
