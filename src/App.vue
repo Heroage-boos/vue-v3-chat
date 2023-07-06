@@ -35,9 +35,6 @@
     <div class="con">
       <router-view />
     </div>
-
-
-
   </div>
 </template>
 

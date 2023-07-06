@@ -37,11 +37,18 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
       /** 接口代理 */
       proxy: {
         '/api': {
-          target: 'http://192.168.0.162:8888/',
+          target: 'http://192.168.0.206:8888/',
           ws: true,
           /** 是否允许跨域 */
           changeOrigin: true,
           rewrite: (path) => path.replace('/api', '/api')
+        },
+        '/api-dev': {
+          target: 'http://192.168.0.206:9999/',
+          ws: true,
+          /** 是否允许跨域 */
+          changeOrigin: true,
+          rewrite: (path) => path.replace('/api-dev', '/api')
         }
       }
     },

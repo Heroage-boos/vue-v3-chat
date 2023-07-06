@@ -1,1 +1,37 @@
-搭建参考：https://juejin.cn/post/7202108772923572285#heading-2  Vue3.2: 记Vite+ESLint与Prettier项目搭建实用配置
+搭建参考：https://juejin.cn/post/7202108772923572285#heading-2 Vue3.2: 记 Vite+ESLint 与 Prettier 项目搭建实用配置
+
+### 面试题
+
+#### 简单聊聊对于 mvvm 了解
+
+a.语义化模板
+b.
+
+#### 生命周期
+
+#### computed 和 watch
+
+#### 条件，v-if&v-show&v-else&v-else-if
+
+#### v-for 和 v-if 优先级
+
+#### key 的作用
+
+#### 指令
+
+    v-once 只渲染一次
+    v-text 渲染字符串
+    v-html 渲染html
+    v-bind 绑定赋值
+    v-on  监听
+    v-model 双向绑定
+
+#### 自定义指令
+
+#### 事件
+
+    .stop
+    .prevent
+    .capture
+    .self
+    .once
