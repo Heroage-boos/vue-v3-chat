@@ -1,9 +1,9 @@
 <template>
   <div class="app-con">
-    <div class="header-nav">
-      <nav v-if="$router.currentRoute.value.name != 'login'" class="nav">
+    <div class="header-nav" v-if="$router.currentRoute.value.name !== 'login'">
+      <nav class="nav">
         <!-- <router-link to="/">Home</router-link> 
-    <router-link to="/chat">About</router-link> -->
+        <router-link to="/chat">About</router-link> -->
         <!-- <router-view to="/" /> -->
         <div class="logo">
           <a href="#"><img src="./assets/主页.svg" alt="Logo" /></a>
@@ -32,7 +32,10 @@
         </div>
       </nav>
     </div>
-    <div class="con">
+    <div :class="{
+      con: $router.currentRoute.value.name !== 'login',
+      flex: true
+    }">
       <router-view />
     </div>
   </div>
@@ -170,7 +173,6 @@ export default defineComponent({
 }
 
 .con {
-  flex: 1;
   margin-top: 64.39px;
 }
 
