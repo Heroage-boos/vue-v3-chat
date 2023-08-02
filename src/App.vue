@@ -1,16 +1,10 @@
 <template>
-  <div class="app-con">
+  <div class="app-con" >
     <div class="header-nav" v-if="$router.currentRoute.value.name !== 'login'">
       <nav class="nav">
-        <!-- <router-link to="/">Home</router-link> 
-        <router-link to="/chat">About</router-link> -->
-        <!-- <router-view to="/" /> -->
-        <div class="logo">
-          <a href="#"><img src="./assets/主页.svg" alt="Logo" /></a>
-        </div>
         <div class="menu">
           <ul>
-            <li><router-link to="/">Home</router-link></li>
+            <li><router-link to="/"><img src="./assets/主页.svg" alt="Logo" /></router-link></li>
             <li><router-link to="/cloudShop">云小铺</router-link></li>
             <li><router-link to="/hotTop">热榜</router-link></li>
             <li><router-link to="/community">社区</router-link></li>
@@ -33,8 +27,7 @@
       </nav>
     </div>
     <div :class="{
-      con: $router.currentRoute.value.name !== 'login',
-      flex: true
+      con: $router.currentRoute.value.name !== 'login'
     }">
       <router-view />
     </div>
@@ -51,9 +44,6 @@ export default defineComponent({
       isThemeTab: false
     }
   },
-  // created() {
-
-  // },
   computed: {
     ...mapGetters('auth', ['isLoggedIn'])
   },
@@ -106,6 +96,7 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
   color: #2c3e50;
 }
 

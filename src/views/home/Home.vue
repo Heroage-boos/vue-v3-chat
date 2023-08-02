@@ -13,7 +13,7 @@
         {{ n['web_name'] }}
       </div>
     </div>
-    <div class="padding-l-20">网易云段子: <span v-html="wangYiYunInfo"></span></div>
+    <!-- <div class="padding-l-20">网易云段子: <span v-html="wangYiYunInfo"></span></div> -->
     <div class="con-nav-detail">
       <nav-content />
     </div>
@@ -80,12 +80,8 @@ const getWangYiYunMethod = (): void => {
   }
 
   .web-nav {
-    display: flex;
-    align-items: center;
     height: 32px;
-    margin-top: 20px;
-    padding: 0 20px;
-
+    margin-left: 40%;
     // padding:0 20px;
     .nav-con {
       margin-right: 35px;
