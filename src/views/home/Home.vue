@@ -5,7 +5,7 @@
     </div>
 
     <div class="web-nav">
-      <div>快捷导航：</div>
+      <!-- <div>快捷导航：</div> -->
       <div v-for="(n, index) in navData.data" :key="index" class="nav-con" @click="handleHref(n['web_url'])">
         <svg class="icon" aria-hidden="true">
           <use :xlink:href="'#' + n['web_img']"></use>
@@ -81,7 +81,8 @@ const getWangYiYunMethod = (): void => {
 
   .web-nav {
     height: 32px;
-    margin-left: 40%;
+    margin-left: 37%;
+    display: flex;
     // padding:0 20px;
     .nav-con {
       margin-right: 35px;

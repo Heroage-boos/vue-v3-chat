@@ -4,7 +4,7 @@
       <nav class="nav">
         <div class="menu">
           <ul>
-            <li><router-link to="/"><img src="./assets/主页.svg" alt="Logo" /></router-link></li>
+            <li><router-link to="/"><img src="./assets/主页.svg" class="logo-image" alt="Logo" /></router-link></li>
             <li><router-link to="/cloudShop">云小铺</router-link></li>
             <li><router-link to="/hotTop">热榜</router-link></li>
             <li><router-link to="/community">社区</router-link></li>
@@ -167,10 +167,6 @@ export default defineComponent({
   margin-top: 64.39px;
 }
 
-.logo img {
-  height: 50px;
-}
-
 .menu {
   flex-direction: column;
 
@@ -195,6 +191,9 @@ export default defineComponent({
     text-decoration: none;
     color: #333;
     font-weight: bold;
+  }
+  .logo-image{
+    display: block;
   }
 
   span {

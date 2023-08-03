@@ -32,6 +32,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { mapGetters, mapActions } from 'vuex'
+import { Login } from "@/api/login/login"
 
 export default defineComponent({
     name: 'NavLogin',
@@ -50,12 +51,25 @@ export default defineComponent({
         submit() {
             console.log('submit-----22', this.username, this.isLoggedIn)
             // 同步登陆信息  保存token 状态存储
+            Login({
+                username: this.username,
+                password: this.password,
+            }).then((res) => {
+                if (res.code === 200) {
+                    console.log("res", res)
+                    const { data } = res
+                    // 保存token
+                    if (data['user_name']) {
+                        // 更改登录状态
+                        this.login(true)
+                        this.$router.push('/chat')
+                    }
 
-            // 保存token
+                }
+            }, (err) => {
 
-            // 更改登录状态
-            this.login(true)
-            this.$router.push('/chat')
+            })
+
         }
     },
 
