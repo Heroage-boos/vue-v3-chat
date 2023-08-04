@@ -9,6 +9,10 @@ const props = defineProps({
     name: {
         type: String,
         required: true
+    },
+    contentData: {
+        type: Array,
+
     }
 })
 
@@ -16,9 +20,9 @@ const symbolId = computed(() => `#${props.prefix}-${props.name}`)
 </script>
 
 <template>
-    <div class="content-item">
-        <h2>这是标题</h2>
-        <p class="text">这是一段要展示的内容，超过100字后会自动换行。这是一段要展示的内容，超过100字后会自动换行。这是一段要展示的内容，超过100字后会自动换行。</p>
+    <div class="content-item" v-for="i of contentData">
+        <h2>{{i.zhihu_content_title}}</h2>
+        <p class="text">{{i.zhihu_content_content}}</p>
         <div class="actions">
             <a href="#" class="comment">评论</a>
             <a href="#" class="like">点赞</a>

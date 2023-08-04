@@ -2,19 +2,25 @@
   <div class="con">
     <div class="con-warp">
       <div class="con-warp-header">
-         <ul>
-            <li>推荐</li>
-            <li>热搜</li>
-            <li>同城</li>
-            <li>科技</li>
-            <li>体育</li>
-            <li>足球</li>
-            <li>其他</li>
-         </ul>
+        <ul>
+          <li>推荐</li>
+          <li>热搜</li>
+          <li>同城</li>
+          <li>科技</li>
+          <li>体育</li>
+          <li>足球</li>
+          <li>其他</li>
+        </ul>
       </div>
       <div class="content">
-        <div class="content-left"><ContentItem/><ContentItem/><ContentItem/><ContentItem/><ContentItem/></div>
-        <div class="content-right"><TopCard/><TopCard/><TopCard/></div>
+        <div class="content-left">
+          <ContentItem :contentData="contentData" />
+        </div>
+        <div class="content-right">
+          <TopCard />
+          <TopCard />
+          <TopCard />
+        </div>
       </div>
     </div>
   </div>
@@ -22,7 +28,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { getUsers, getNews, tang300, getCsdnHot, getTouTiaoHot, get24Hot } from '@/api/home'
+import { getZhihuContentData } from "@/api/dataManmage/index"
 import TopCard from "@/components/TopCard/index.vue"
 import ContentItem from "@/components/ContentItem/index.vue"
 
@@ -34,32 +40,25 @@ export default defineComponent({
   },
   data: () => {
     return {
-      touTiaoHotData: [],
-      touTiaoPage: {
-        total: '',
-        size: 10
-      },
-      wbHotData: [],
-      bdHotData: [],
-      zhHotData: [],
-      dyHotData: [],
-      wxHotData: []
+      contentData: [],
     }
   },
   created() {
-    getUsers().then((res: unknown) => {
-      console.log('getUser', res)
-    })
-    // this.tang300();
-    // this.getNews();
-    // this.getCsdnHot()
-    // this.getTouTiaoHot();
+    this.getContentData();
   },
   mounted() {
 
   },
   methods: {
-
+    getContentData() {
+      getZhihuContentData().then((result:any) => {
+        if (result.code === 200) {
+          const { data } = result
+          console.log("datatata",data)
+          this.contentData=data
+        }
+      })
+    }
   }
 })
 </script>
@@ -81,9 +80,10 @@ export default defineComponent({
     margin-bottom: 100px;
 
     .con-warp-header {
-      ul{
+      ul {
         list-style-type: none;
-        li{
+
+        li {
           float: left;
           margin-right: 10px;
         }

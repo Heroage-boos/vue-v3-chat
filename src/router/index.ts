@@ -38,7 +38,13 @@ const routes: Array<RouteRecordRaw> = [
     path: '/community',
     name: 'Community',
     component: () => import('../views/community/index.vue')
-  }
+  },
+  {
+    path: '/dataManange',
+    name: 'DataManange',
+    component: () => import('../views/dataManange/index.vue')
+  },
+  
 ]
 
 const router = createRouter({

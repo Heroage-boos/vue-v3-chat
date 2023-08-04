@@ -10,6 +10,7 @@
             <li><router-link to="/community">社区</router-link></li>
             <li><span @click="handleChat()">chatGTP</span></li>
             <li><router-link to="/webNav">网址导航</router-link></li>
+            <li><router-link to="/dataManange">数据管理</router-link></li>
           </ul>
         </div>
         <div class="other">
