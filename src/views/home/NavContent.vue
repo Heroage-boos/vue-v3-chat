@@ -9,7 +9,7 @@
           <li>科技</li>
           <li>体育</li>
           <li>足球</li>
-          <li>其他</li>
+          <li>更多</li>
         </ul>
       </div>
       <div class="content">
@@ -17,9 +17,7 @@
           <ContentItem :contentData="contentData" />
         </div>
         <div class="content-right">
-          <TopCard />
-          <TopCard />
-          <TopCard />
+          <TopCard :isMore="false"/>
         </div>
       </div>
     </div>
@@ -51,11 +49,11 @@ export default defineComponent({
   },
   methods: {
     getContentData() {
-      getZhihuContentData().then((result:any) => {
+      getZhihuContentData().then((result: any) => {
         if (result.code === 200) {
           const { data } = result
-          console.log("datatata",data)
-          this.contentData=data
+          console.log("datatata", data)
+          this.contentData = data
         }
       })
     }
@@ -80,16 +78,32 @@ export default defineComponent({
     margin-bottom: 100px;
 
     .con-warp-header {
+      background-color: #f2f2f2;
+      border-radius: 5px;
+
       ul {
-        list-style-type: none;
+        display: flex;
+        list-style: none;
+        align-items: center;
+        padding: 0;
 
         li {
-          float: left;
-          margin-right: 10px;
+          margin: 0 10px;
+          padding: 5px 10px;
+          font-size: 16px;
+          font-weight: bold;
+          color: #333;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+
+        li:hover {
+          background-color: #ccc;
+          color: #fff;
+          border-radius: 3px;
         }
       }
     }
-
     .content {
       display: flex;
       justify-content: space-between;

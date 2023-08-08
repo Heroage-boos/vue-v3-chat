@@ -1,35 +1,60 @@
 <template>
     <div class="rank-item">
-        <div class="rank-item-title">排行榜1</div>
+        <div class="rank-item-title">
+            排行榜1
+            <i class="fas fa-sync-alt" @click="refreshRank"></i>
+        </div>
         <ul class="rank-item-list">
-            <li>排行榜1-1</li>
-            <li>排行榜1-2</li>
-            <li>排行榜1-3</li>
-            <li>排行榜1-4</li>
-            <li>排行榜1-5</li>
+            <li v-for="item in rankList" :key="item">{{ item }}</li>
         </ul>
+        <div class="load-more" v-if="isMore">
+            <button @click="loadMore">加载更多</button>
+        </div>
     </div>
 </template>
-
+  
 <script lang="ts" setup>
-import { computed } from "vue"
+import { ref } from 'vue';
 
 const props = defineProps({
-    prefix: {
-        type: String,
-        default: "icon"
-    },
-    name: {
-        type: String,
-        required: true
+    isMore: {
+        type: Boolean
     }
 })
 
-const symbolId = computed(() => `#${props.prefix}-${props.name}`)
+const rankList = ref([
+    '排行榜1-1',
+    '排行榜1-2',
+    '排行榜1-3',
+    '排行榜1-4',
+    '排行榜1-5'
+]);
+
+const refreshRank = () => {
+    // 模拟刷新数据
+    rankList.value = [
+        '刷新后的排行榜1-1',
+        '刷新后的排行榜1-2',
+        '刷新后的排行榜1-3',
+        '刷新后的排行榜1-4',
+        '刷新后的排行榜1-5'
+    ];
+};
+
+const loadMore = () => {
+    // 模拟加载更多数据
+    const moreItems = [
+        '加载更多1',
+        '加载更多2',
+        '加载更多3',
+        '加载更多4',
+        '加载更多5'
+    ];
+    rankList.value = [...rankList.value, ...moreItems];
+};
 </script>
-
-
-<style >
+  
+<style scoped>
 .rank-item {
     width: 100%;
     background-color: #fff;
@@ -43,6 +68,9 @@ const symbolId = computed(() => `#${props.prefix}-${props.name}`)
 }
 
 .rank-item-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     font-size: 18px;
     font-weight: bold;
     padding: 10px;
@@ -59,10 +87,15 @@ const symbolId = computed(() => `#${props.prefix}-${props.name}`)
     color: #333;
     line-height: 1.5;
     border-bottom: 1px solid #eee;
+    transition: background-color 0.3s ease;
 }
 
 .rank-item-list li:last-child {
     border-bottom: none;
+}
+
+.rank-item-list li:hover {
+    background-color: #f5f5f5;
 }
 
 .load-more {
@@ -79,9 +112,17 @@ const symbolId = computed(() => `#${props.prefix}-${props.name}`)
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
 }
 
 .load-more button:hover {
     background-color: #0062cc;
 }
+
+.load-more button i {
+    margin-right: 5px;
+}
 </style>
+  

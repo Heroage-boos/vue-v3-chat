@@ -14,3 +14,10 @@ export function getZhihuContentData(){
       method:"get"
    })
 }
+
+export function get24kHotData(){
+   return  request({
+        url:"/dataManage/24k-hot/data",
+        method:"get"
+     })
+  }
