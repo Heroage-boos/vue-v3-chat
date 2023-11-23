@@ -60,6 +60,7 @@ const getWangYiYunMethod = (): void => {
     }
   })
 }
+
 </script>
 
 <style lang="scss" scoped>

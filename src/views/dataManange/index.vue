@@ -7,9 +7,7 @@
   
 
 <script setup lang="ts">
-import { ref } from 'vue';
 import { fetchZhihuContentData, get24kHotData } from '@/api/dataManmage/index'
-
 
 const handleGetZhihuData = (): void => {
     fetchZhihuContentData().then((result) => {

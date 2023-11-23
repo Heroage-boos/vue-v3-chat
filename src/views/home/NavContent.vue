@@ -72,7 +72,7 @@ export default defineComponent({
   .con-warp {
     display: flex;
     flex-direction: column;
-    width: 65%;
+    width: 75%;
     border: solid 1px green;
     // height: 1000px;
     margin-bottom: 100px;
@@ -109,8 +109,9 @@ export default defineComponent({
       justify-content: space-between;
 
       .content-left {
-        flex-basis: 65%;
+        flex-basis: 75%;
         border: solid 1px green;
+        height: 2000px;
 
       }
 

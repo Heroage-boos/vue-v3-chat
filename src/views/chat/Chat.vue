@@ -1,71 +1,73 @@
 <template>
-  <div class="wrapper">
-    <div class="container boder">
-      <!-- <div class="left">
-                <div class="top">
-                    <input type="text" placeholder="Search" />
-                    <a href="javascript:;" class="search"></a>
-                </div>
-                <ul class="people">
-                    <li class="person" data-chat="person1">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/382994/thomas.jpg" alt="" />
-                        <span class="name">专业的openai</span>
-                        <span class="time">2:09 PM</span>
-                        <span class="preview">I was wondering...</span>
-                    </li>
-                    <li class="person" data-chat="person1">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/382994/thomas.jpg" alt="" />
-                        <span class="name">Thomas Bangalter</span>
-                        <span class="time">2:09 PM</span>
-                        <span class="preview">I was wondering...</span>
-                    </li>
-                </ul>
-            </div> -->
-      <div class="right">
-        <div class="top">
-          <span>To: <span class="name">Chat GTP</span></span>
-        </div>
-        <div class="chat" data-chat="person1">
-          <div class="conversation-start">
-            <span>Today, 6:48 AM</span>
+  <div class="container boder">
+    <div class="left">
+      <div class="top">
+        <input type="text" placeholder="Search" />
+        <a href="javascript:;" class="search"></a>
+      </div>
+      <ul class="people">
+        <li class="person" data-chat="person1">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/382994/thomas.jpg" alt="" />
+          <div>
+            <span class="name">专业的openai</span>
+            <span class="time">2:09 PM</span>
           </div>
-          <div v-for="(a, index) in content" :key="index" class="bubble you"
-            :class="{ me: a.send_id == 'me', you: a.send_id == 'you' }">
-            <!-- v-html="a.task_info " -->
-            <div v-if="a.send_id == 'me'" class="flex">
-              <div class="">
-                <div class="padding-r-5 w100 text-right">GTP</div>
-                <div class="white-space">
-                  {{ a.task_info }}
-                </div>
-              </div>
-              <div class="chat-hander-icons ml5 flex-shirt">
-                <img src="@/assets/icons/chatgpt-icon.svg" />
+          <span class="preview">I was wondering...</span>
+        </li>
+        <li class="person" data-chat="person1">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/382994/thomas.jpg" alt="" />
+          <div>
+            <span class="name">专业的openai</span>
+            <span class="time">2:09 PM</span>
+          </div>
+          <span class="preview">I was wondering...</span>
+        </li>
+      </ul>
+    </div>
+    <div class="right">
+      <div class="top">
+        <span>To: <span class="name">Chat GTP</span></span>
+      </div>
+      <div class="chat" data-chat="person1">
+        <div class="conversation-start">
+          <span>Today, 6:48 AM</span>
+        </div>
+        <div v-for="(a, index) in content" :key="index" class="bubble "
+          :class="{ me: a.send_id == 'me', you: a.send_id == 'you' }">
+          <!-- v-html="a.task_info " -->
+          <div v-if="a.send_id == 'me'" class="flex">
+            <div class="">
+              <div class="padding-r-5 w100 text-right">GTP</div>
+              <div class="white-space">
+                {{ a.task_info }}
               </div>
             </div>
-            <div v-if="a.send_id == 'you'" class="flex-end">
-              <div class="chat-hander-icons mr5 flex-shirt">
-                <img src="@/assets/icons/unnamed.webp" />
-              </div>
-              <div class="flex-column">
-                <div>xiaobai</div>
-                <div class="white-space">
-                  {{ a.task_info }}
-                </div>
+            <div class="chat-hander-icons ml5 flex-shirt">
+              <img src="@/assets/icons/chatgpt-icon.svg" />
+            </div>
+          </div>
+          <div v-if="a.send_id == 'you'" class="flex-end">
+            <div class="chat-hander-icons mr5 flex-shirt">
+              <img src="@/assets/icons/unnamed.webp" />
+            </div>
+            <div class="flex-column">
+              <div>xiaobai</div>
+              <div class="white-space">
+                {{ a.task_info }}
               </div>
             </div>
+          </div>
 
-            <!-- <img
+          <!-- <img
                                 :src="a.send_id == 'me' ? '@/assets/icons/chatgpt-icon.svg' : '@/assets/icons/unnamed.webp'" /> -->
-          </div>
         </div>
+      </div>
 
-        <div class="write">
-          <div href="javascript:;" class="write-link attach"></div>
-          <input v-model="send_info" type="text" placeholder="Enter" @keyup="inputEnterUp($event)" />
-          <div href="javascript:;" class="write-link smiley"></div>
-          <div class="write-link send" @click="handlerSend()"></div>
-        </div>
+      <div class="write">
+        <div href="javascript:;" class="write-link attach"></div>
+        <input v-model="send_info" type="text" placeholder="Enter" @keyup="inputEnterUp($event)" />
+        <div href="javascript:;" class="write-link smiley"></div>
+        <div class="write-link send" @click="handlerSend()"></div>
       </div>
     </div>
   </div>
@@ -185,24 +187,6 @@ export default defineComponent({
   font-weight: 400;
 }
 
-@mixin placeholder {
-  &::-webkit-input-placeholder {
-    @content;
-  }
-
-  &:-moz-placeholder {
-    @content;
-  }
-
-  &::-moz-placeholder {
-    @content;
-  }
-
-  &:-ms-input-placeholder {
-    @content;
-  }
-}
-
 *,
 *:before,
 *:after {
@@ -220,29 +204,17 @@ export default defineComponent({
   --blue: #00b0ff;
 }
 
-.wrapper {
-  position: relative;
-  left: 50%;
-  width: var(--wrapper);
-  height: 800px;
-  transform: translate(-50%, 0);
-}
-
 .container {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  width: 85%;
-  height: 95%;
-  background-color: var(--white);
-  transform: translate(-50%, -50%);
+  display: flex;
+  height: 92vh;
+  margin: 0px 20px;
 
   .left {
-    float: left;
-    width: 32.6%;
-    height: 100%;
+    flex-basis: 32.6%;
     border-right: 1px solid #ccc;
     background-color: var(--white);
+    display: flex;
+    flex-direction: column;
 
     .top {
       position: relative;
@@ -293,9 +265,9 @@ export default defineComponent({
     }
 
     .people {
-      border-right: 1px solid var(--light);
-      border-left: 1px solid var(--light);
-      width: calc(100% + 2px);
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
 
       .person {
         position: relative;
@@ -376,11 +348,9 @@ export default defineComponent({
   }
 
   .right {
-    position: relative;
-    float: left;
-    // width: 67.4%;
-    width: 100%;
-    height: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 
     .top {
       width: 100%;
@@ -400,43 +370,16 @@ export default defineComponent({
     }
 
     .chat {
-      position: relative;
-      // display: none;
-      overflow: auto;
-      padding: 0 35px 92px;
-      border-width: 1px 1px 1px 0;
-      border-style: solid;
-      border-color: var(--light);
-      height: calc(100% - 148px);
-      justify-content: flex-end;
+      padding: 10px;
+      flex: 1;
+      display: flex;
       flex-direction: column;
-
-      &.active-chat {
-        display: block;
-        display: flex;
-
-        .bubble {
-          transition-timing-function: cubic-bezier(0.4, -0.04, 1, 1);
-
-          @for $i from 1 through 10 {
-            &:nth-of-type(#{$i}) {
-              animation-duration: 0.15s * $i;
-            }
-          }
-        }
-      }
     }
 
     .write {
-      position: absolute;
-      bottom: 29px;
-      left: 30px;
-      height: 42px;
-      padding-left: 8px;
-      border: 1px solid var(--light);
-      background-color: #eceff1;
-      width: calc(100% - 58px);
-      border-radius: 5px;
+      display: flex;
+      margin-bottom: 10px;
+      padding: 0 25px;
 
       input {
         font-size: 16px;
@@ -498,66 +441,8 @@ export default defineComponent({
     }
 
     .bubble {
-      font-size: 16px;
-      position: relative;
-      display: inline-block;
-      clear: both;
-      margin-bottom: 8px;
-      padding: 13px 14px;
-      vertical-align: top;
-      border-radius: 5px;
-
-      &:before {
-        position: absolute;
-        top: 19px;
-        display: block;
-        width: 8px;
-        height: 6px;
-        content: '\00a0';
-        transform: rotate(29deg) skew(-35deg);
-      }
-
-      &.you {
-        float: left;
-        color: var(--white);
-        background-color: var(--blue);
-        align-self: flex-start;
-        animation-name: slideFromLeft;
-
-        &:before {
-          left: -3px;
-          background-color: var(--blue);
-        }
-      }
-
-      &.me {
-        float: right;
-        color: var(--dark);
-        background-color: #eceff1;
-        align-self: flex-end;
-        animation-name: slideFromRight;
-
-        &:before {
-          right: -3px;
-          background-color: #eceff1;
-        }
-      }
-
-      .chat-hander-icons {
-        width: 36px;
-        height: 36px;
-        // border-radius: 50%;
-        // border: solid 1px red;
-        overflow: hidden;
-        position: relative;
-
-        >img {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-        }
-      }
+      height: 100%;
+      width: 100%
     }
 
     .conversation-start {
@@ -592,54 +477,6 @@ export default defineComponent({
         }
       }
     }
-  }
-}
-
-@keyframes slideFromLeft {
-  0% {
-    margin-left: -200px;
-    opacity: 0;
-  }
-
-  100% {
-    margin-left: 0;
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes slideFromLeft {
-  0% {
-    margin-left: -200px;
-    opacity: 0;
-  }
-
-  100% {
-    margin-left: 0;
-    opacity: 1;
-  }
-}
-
-@keyframes slideFromRight {
-  0% {
-    margin-right: -200px;
-    opacity: 0;
-  }
-
-  100% {
-    margin-right: 0;
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes slideFromRight {
-  0% {
-    margin-right: -200px;
-    opacity: 0;
-  }
-
-  100% {
-    margin-right: 0;
-    opacity: 1;
   }
 }
 </style>
